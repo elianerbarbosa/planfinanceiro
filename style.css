@@ -106,14 +106,13 @@ background-color: #222;
 
 
 /* tracinho no menu */ /* modificar o red para transparente */
-header .navegacao-primaria li a::after {
-    content: '';
-    width: 0px;
+header .navegacao-primaria li a:hover::after {
+    width: 100%;
     height: 0px;
-    border-bottom: 4px solid black;
-    display: block;
-    transition: .9s;
+    padding: 0px;
+    border-bottom: 4px solid aqua;
 }
+
 
 /*dowload cv secao*/
 
@@ -145,7 +144,6 @@ header .navegacao-primaria li a::after {
     border-radius: 5px;
     border: 2px solid white;
 }
-
 .section-div img {
     max-width: 100%;
     border-radius: 500px;
@@ -178,7 +176,6 @@ opacity: 1;
 transform: translate3d(0, 0, 0);
     }
 }
-
 
 /* experiencia */
 
