@@ -115,6 +115,70 @@ header .navegacao-primaria li a::after {
     transition: .9s;
 }
 
+/*dowload cv secao*/
+
+.section-div {
+    animation: initialize .7s forwards;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #222;
+
+}
+
+.section-div div {
+    margin-top: 120px;
+    align-self: start;
+    display: grid;
+    gap: 30px;
+}
+
+
+/*DOWLOAND*/
+.section-div div a {
+    justify-self: start;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.section-div img {
+    max-width: 100%;
+    border-radius: 500px;
+    border: 2px solid aqua;
+}
+
+.digitando::after {
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: blink .5s infinite;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+   }
+    to {
+opacity: 0;
+    }
+}
+
+@keyframes inicializar {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+opacity: 1;
+transform: translate3d(0, 0, 0);
+    }
+}
+
 
 /* experiencia */
 
