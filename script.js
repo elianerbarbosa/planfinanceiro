@@ -134,22 +134,29 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ─────────────────────────────────────────────
      4. ANIMAÇÃO DE ENTRADA (IntersectionObserver)
   ───────────────────────────────────────────── */
-  if ('IntersectionObserver' in window) {
+  // Adicionar animate-in imediatamente (garante visibilidade em arquivo local)
+  // O IntersectionObserver adiciona a classe gradualmente ao rolar (efeito bônus)
+  const animEls = document.querySelectorAll(
+    '.knowledge-card, .planning-card, .investment-item, .investment-type'
+  );
+
+  // Exibir tudo de imediato (fallback universal)
+  animEls.forEach(function (el) { el.classList.add('animate-in'); });
+
+  // Se o observer estiver disponível, remover a classe e re-adicionar ao entrar na tela
+  if ('IntersectionObserver' in window && window.location.protocol !== 'file:') {
+    animEls.forEach(function (el) { el.classList.remove('animate-in'); });
+
     const obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-in');
-          obs.unobserve(entry.target); // animar só uma vez
+          obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
 
-    document.querySelectorAll('.knowledge-card, .planning-card, .investment-item, .investment-type')
-      .forEach(function (el) { obs.observe(el); });
-  } else {
-    // Fallback: mostrar tudo sem animação
-    document.querySelectorAll('.knowledge-card, .planning-card, .investment-item, .investment-type')
-      .forEach(function (el) { el.classList.add('animate-in'); });
+    animEls.forEach(function (el) { obs.observe(el); });
   }
 
 
