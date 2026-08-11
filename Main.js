@@ -134,29 +134,27 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ─────────────────────────────────────────────
      4. ANIMAÇÃO DE ENTRADA (IntersectionObserver)
   ───────────────────────────────────────────── */
-  // Adicionar animate-in imediatamente (garante visibilidade em arquivo local)
-  // O IntersectionObserver adiciona a classe gradualmente ao rolar (efeito bônus)
-  const animEls = document.querySelectorAll(
-    '.knowledge-card, .planning-card, .investment-item, .investment-type'
-  );
+  // Animação de entrada — sempre visível, efeito suave ao rolar no GitHub Pages
+  const SELETORES = '.knowledge-card, .planning-card, .investment-item, .investment-type';
 
-  // Exibir tudo de imediato (fallback universal)
-  animEls.forEach(function (el) { el.classList.add('animate-in'); });
-
-  // Se o observer estiver disponível, remover a classe e re-adicionar ao entrar na tela
-  if ('IntersectionObserver' in window && window.location.protocol !== 'file:') {
-    animEls.forEach(function (el) { el.classList.remove('animate-in'); });
-
+  if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          entry.target.classList.add('visible');
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    }, { threshold: 0.05 });
 
-    animEls.forEach(function (el) { obs.observe(el); });
+    document.querySelectorAll(SELETORES).forEach(function (el) {
+      obs.observe(el);
+    });
+  } else {
+    // Fallback: mostrar tudo sem animação
+    document.querySelectorAll(SELETORES).forEach(function (el) {
+      el.classList.add('visible');
+    });
   }
 
 
