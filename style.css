@@ -248,13 +248,9 @@ section { padding: 80px 0; }
   border: 1px solid rgba(114, 200, 205, 0.1);
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   /* Animação de entrada */
-  opacity: 0;
-  transform: translateY(24px);
 }
 
 .knowledge-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
   transition: opacity 0.6s ease, transform 0.6s ease,
               box-shadow 0.3s, border-color 0.3s;
 }
@@ -301,13 +297,9 @@ section { padding: 80px 0; }
   border-radius: 10px;
   padding: 28px;
   transition: transform 0.3s, background 0.3s;
-  opacity: 0;
-  transform: translateY(24px);
 }
 
 .planning-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
   transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
 }
 
@@ -388,13 +380,9 @@ section { padding: 80px 0; }
   padding: 30px;
   border-radius: 10px;
   border: 1px solid rgba(114, 200, 205, 0.2);
-  opacity: 0;
-  transform: translateY(24px);
 }
 
 .investment-type.animate-in {
-  opacity: 1;
-  transform: translateY(0);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -430,13 +418,9 @@ section { padding: 80px 0; }
   padding: 24px;
   border-radius: 10px;
   transition: transform 0.3s, background 0.3s;
-  opacity: 0;
-  transform: translateY(24px);
 }
 
 .investment-item.animate-in {
-  opacity: 1;
-  transform: translateY(0);
   transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
 }
 
