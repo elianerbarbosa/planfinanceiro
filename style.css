@@ -250,9 +250,8 @@ section { padding: 80px 0; }
   /* Animação de entrada */
 }
 
-.knowledge-card.animate-in {
-  transition: opacity 0.6s ease, transform 0.6s ease,
-              box-shadow 0.3s, border-color 0.3s;
+.knowledge-card.visible {
+  transform: translateY(0) !important;
 }
 
 .knowledge-card:hover {
@@ -299,8 +298,8 @@ section { padding: 80px 0; }
   transition: transform 0.3s, background 0.3s;
 }
 
-.planning-card.animate-in {
-  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
+.planning-card.visible {
+  transform: translateY(0) !important;
 }
 
 .planning-card:hover {
@@ -382,8 +381,8 @@ section { padding: 80px 0; }
   border: 1px solid rgba(114, 200, 205, 0.2);
 }
 
-.investment-type.animate-in {
-  transition: opacity 0.6s ease, transform 0.6s ease;
+.investment-type.visible {
+  transform: translateY(0) !important;
 }
 
 .investment-type h3 {
@@ -420,8 +419,8 @@ section { padding: 80px 0; }
   transition: transform 0.3s, background 0.3s;
 }
 
-.investment-item.animate-in {
-  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
+.investment-item.visible {
+  transform: translateY(0) !important;
 }
 
 .investment-item:hover {
@@ -434,6 +433,27 @@ section { padding: 80px 0; }
 .heart-rating { color: #ff6b6b; font-size: 1.3rem; margin-bottom: 12px; }
 
 .investment-item p { color: #ddd; font-size: 0.9rem; }
+
+
+/* =====================================================
+   ANIMAÇÃO DE ENTRADA
+   Cards sempre visíveis; efeito suave ao rolar (GitHub Pages)
+   ===================================================== */
+.knowledge-card,
+.planning-card,
+.investment-type,
+.investment-item {
+  /* Visível por padrão — sem opacity:0 */
+  transform: translateY(18px);
+  transition: transform 0.55s ease, box-shadow 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.knowledge-card.visible,
+.planning-card.visible,
+.investment-type.visible,
+.investment-item.visible {
+  transform: translateY(0);
+}
 
 /* =====================================================
    FOOTER
