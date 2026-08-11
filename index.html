@@ -1,414 +1,404 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-popup-overlay/2.1.5/jquery.popupoverlay.min.js" integrity="sha512-gu0czvpcfFnRy+Dxo9M585nVnO8YbTnoFRWuSnvJVdBlaeaucDNAZUjP+IfscyQEIlUOGQLtzpVFpl32fkuKig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ContatoEstilo.css">
-    <title>Planejamento Financeiro</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planejamento Financeiro — Eliane R. Barbosa</title>
+  <meta name="description" content="Aprenda sobre planejamento financeiro, tipos de investimentos e como sair das dívidas." />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Berkshire+Swash&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (sem integrity para evitar bloqueio) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="ContatoEstilo.css" />
 </head>
+
 <body>
-    <header>
-        <h1>PLANEJAMENTO <span>FINANCEIRO</span></h1>
-        <nav>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#Sobre">Sobre</a></li>
-                <li>
-                    <a href="#">Links <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="https://inteligenciafinanceira.com.br/onde-investir/investimentos/visao-estrategica-investimento/" target="_blank">Como investir</a></li>
-                        <li><a href="https://exame.com/invest/minhas-financas/comecar-investir-9-dicas-iniciantes/" target="_blank">Por onde começar</a></li>
-                        <li><a href="https://comoinvestir.anbima.com.br/planeje/" target="_blank">Como planejar</a></li>
-                    </ul>
-                </li>
-                <li><a href="#Investimentos">Investimentos</a></li>
-                <li><a href="#Contato">Contato</a></li>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner container">
+      <h1>PLANEJAMENTO <span>FINANCEIRO</span></h1>
+
+      <!-- Botão hamburger (mobile) -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav id="nav-menu" aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#Sobre">Sobre</a></li>
+          <li class="has-submenu">
+            <a href="#" aria-haspopup="true" aria-expanded="false">
+              Links <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </a>
+            <ul class="submenu" role="menu">
+              <li role="none"><a href="https://inteligenciafinanceira.com.br/onde-investir/investimentos/visao-estrategica-investimento/" target="_blank" rel="noopener noreferrer" role="menuitem">Como investir</a></li>
+              <li role="none"><a href="https://exame.com/invest/minhas-financas/comecar-investir-9-dicas-iniciantes/" target="_blank" rel="noopener noreferrer" role="menuitem">Por onde começar</a></li>
+              <li role="none"><a href="https://comoinvestir.anbima.com.br/planeje/" target="_blank" rel="noopener noreferrer" role="menuitem">Como planejar</a></li>
             </ul>
-        </nav>
-    </header>
+          </li>
+          <li><a href="#Investimentos">Investimentos</a></li>
+          <li><a href="#Contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="text-content">
-                    <svg viewBox="0 0 100 20" class="animated-text">
-                        <defs>
-                            <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="5%" stop-color="#326384"/>
-                                <stop offset="95%" stop-color="#123752"/>
-                            </linearGradient>
-                            <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
-                                <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" fill="url(#gradient)"> 
-                                    <animateTransform
-                                        attributeName="transform"
-                                        begin="0s"
-                                        dur="1.5s"
-                                        type="translate"
-                                        from="0,0"
-                                        to="40,0"
-                                        repeatCount="indefinite"/>
-                                </path>
-                            </pattern>
-                        </defs>
-                        <text text-anchor="middle" x="50" y="10" font-size="12" fill="url(#wave)" fill-opacity="0.6">PLANEJAMENTO</text>
-                        <text text-anchor="middle" x="50" y="10" font-size="12" fill="url(#gradient)" fill-opacity="0.2">PLANEJAMENTO</text>
-                    </svg>
-                    
-                    <div class="info-text">
-                        <p>A desigualdade de renda aumentou nas regiões metropolitanas do Brasil em 2022, é o que mostra a 12ª edição do boletim Desigualdade nas Metrópoles.</p>
-                        <p>De acordo com o estudo, que considera a realidade de três grupos de renda – 40% mais pobres, 50% intermediários e 10% mais ricos. Os mais ricos encerraram 2022 ganhando 31 vezes o salário dos mais pobres nas regiões metropolitanas do país.</p>
-                        <p>Segundo uma pesquisa realizada pelo Banco BV e o Instituto MindMiners em 2022, 61% dos brasileiros associam o dinheiro a sentimentos negativos e 54% ainda o consideram um tabu.</p>
-                        <p>Mude sua forma de pensar sobre o dinheiro. Infelizmente não é comum ensinarem sobre educação financeira nas escolas. As pessoas crescem e se acostumam a tratar o dinheiro como uma moeda de troca. Ou seja, quando precisam de algo junto ao dinheiro e trocam pelo que querem, assim as pessoas estão sempre gastando tudo que ganham.</p>
-                        <p>E quando recebem alguma promoção passando a receber mais dinheiro por mês, porém, rapidamente pensam em comprar coisas mais caras gastando tudo que ganharam. Então para juntar dinheiro você precisa mudar seu pensamento: pare de gastar tudo que ganha encarando o seu dinheiro como moeda de troca e passe a utilizá-lo como funcionários que trabalham para você.</p>
-                        
-                        <a href="https://observatorio3setor.org.br/noticias/brasil-10-mais-ricos-ganham-31-vezes-o-salario-dos-mais-pobres-nas-regioes-metropolitanas/" class="btn-link" target="_blank">Saiba mais</a>
-                    </div>
-                </div>
-                
-                <div class="chart-content">
-                    <div id="myPlot" style="width:100%;max-width:700px; margin: 0 auto;"></div>
-                    
-                    <svg viewBox="0 0 100 20" class="animated-text">
-                        <defs>
-                            <linearGradient id="gradient2" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="5%" stop-color="#326384"/>
-                                <stop offset="95%" stop-color="#123752"/>
-                            </linearGradient>
-                            <pattern id="wave2" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
-                                <path id="wavePath2" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" fill="url(#gradient2)"> 
-                                    <animateTransform attributeName="transform"
-                                        begin="0s"
-                                        dur="1.5s"
-                                        type="translate"
-                                        from="0,0"
-                                        to="40,0"
-                                        repeatCount="indefinite"/>
-                                </path>
-                            </pattern>
-                        </defs>
-                        <text text-anchor="middle" x="50" y="15" font-size="15" fill="url(#wave2)" fill-opacity="0.6">FINANCEIRO</text>
-                        <text text-anchor="middle" x="50" y="15" font-size="15" fill="url(#gradient2)" fill-opacity="0.1">FINANCEIRO</text>
-                    </svg>
-                </div>
-            </div>
-        </section>
+  <!-- ===== MAIN ===== -->
+  <main>
 
-        <section id="Sobre" class="knowledge-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-handshake"></i> O QUE É IMPORTANTE SABER</h2>
-                <div class="knowledge-grid">
-                    <div class="knowledge-card">
-                        <h3>Lacuna de conhecimento</h3>
-                        <p>A ausência de conhecimentos básicos sobre orçamento, poupança, investimentos e planejamento financeiro pode levar a uma sensação de insegurança e ansiedade em relação ao dinheiro.</p>
-                        <a href="https://www.meioemensagem.com.br/opiniao/do-tabu-a-inclusao-repensando-a-relacao-do-brasileiro-com-o-dinheiro" class="btn-knowledge" target="_blank">Saiba mais</a>
-                    </div>
-                    
-                    <div class="knowledge-card">
-                        <h3>Reflexos da desigualdade e desconfiança</h3>
-                        <p>A desigualdade social é um dos principais motivos para essa associação negativa e, infelizmente, é até hoje um dos maiores desafios enfrentados pelo Brasil. Nosso país tem uma distribuição de renda extremamente desigual.</p>
-                        <a href="https://www.meioemensagem.com.br/opiniao/do-tabu-a-inclusao-repensando-a-relacao-do-brasileiro-com-o-dinheiro" class="btn-knowledge" target="_blank">Saiba mais</a>
-                    </div>
-                    
-                    <div class="knowledge-card">
-                        <h3>Falta educação</h3>
-                        <p>A falta de educação financeira adequada é outra que desempenha um papel importante nessa associação negativa. Muitos brasileiros não têm acesso a informações e recursos que os ajudem a gerenciar suas finanças de forma eficaz.</p>
-                        <a href="https://www.meioemensagem.com.br/opiniao/do-tabu-a-inclusao-repensando-a-relacao-do-brasileiro-com-o-dinheiro" class="btn-knowledge" target="_blank">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- HERO -->
+    <section class="hero-section" aria-label="Apresentação">
+      <div class="container hero-content">
 
-        <section class="planning-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-book"></i> COMO SE PLANEJAR FINANCEIRAMENTE</h2>
-                <div class="planning-grid">
-                    <div class="planning-card">
-                        <h3>O que você deve fazer</h3>
-                        <ul>
-                            <li>Saiba quanto você ganha e gasta.</li>
-                            <li>Ter uma previsibilidade de receita e das despesas mensais é um ponto fundamental para alavancar as finanças.</li>
-                            <li>Faça um orçamento de todas as contas.</li>
-                            <li>Defina metas</li>
-                            <li>Poupe.</li>
-                        </ul>
-                        <a href="https://serasa.certificadodigital.com.br/blog/mercado/planejamento-financeiro/" class="btn-planning" target="_blank">Saiba mais</a>
-                    </div>
-                    
-                    <div class="planning-card">
-                        <h3>Como iniciar um planejamento financeiro do zero</h3>
-                        <ul>
-                            <li>Defina metas e objetivos.</li>
-                            <li>Registre suas despesas.</li>
-                            <li>Reavalie seus gastos.</li>
-                            <li>Crie uma reserva de emergência.</li>
-                            <li>Adote o hábito do consumo consciente.</li>
-                            <li>Pesquise antes de realizar uma compra.</li>
-                            <li>Pague à vista, se possível.</li>
-                            <li>Negocie as dívidas.</li>
-                            <li>Atualize seu planejamento financeiro com frequência.</li>
-                        </ul>
-                        <a href="https://planofp.com.br/como-iniciar-um-planejamento-financeiro-do-zero/" class="btn-planning" target="_blank">Saiba mais</a>
-                    </div>
-                    
-                    <div class="planning-card">
-                        <h3>Benefícios do plano financeiro pessoal</h3>
-                        <ul>
-                            <li>Diminuir o estresse financeiro;</li>
-                            <li>Facilitar a realização de objetivos;</li>
-                            <li>Tomar consciência sobre a relevância de criar uma reserva financeira;</li>
-                            <li>Cortar gastos desnecessários;</li>
-                            <li>Saber exatamente qual é a sua renda mensal;</li>
-                            <li>Levar uma vida mais equilibrada;</li>
-                            <li>Garantir e até melhorar o seu padrão de vida;</li>
-                            <li>Evitar o endividamento;</li>
-                            <li>Escolher investimentos adequados às suas metas;</li>
-                            <li>Tomar decisões mais certeiras.</li>
-                        </ul>
-                        <a href="https://www.onze.com.br/blog/planejamento-financeiro-pessoal/" class="btn-planning" target="_blank">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="text-content">
+          <!-- SVG animado -->
+          <svg viewBox="0 0 100 20" class="animated-text" aria-hidden="true">
+            <defs>
+              <linearGradient id="grad1" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="5%"  stop-color="#326384"/>
+                <stop offset="95%" stop-color="#123752"/>
+              </linearGradient>
+              <pattern id="wave1" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+                <path d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" fill="url(#grad1)">
+                  <animateTransform attributeName="transform" type="translate" from="0,0" to="40,0" dur="1.5s" repeatCount="indefinite"/>
+                </path>
+              </pattern>
+            </defs>
+            <text text-anchor="middle" x="50" y="10" font-size="12" fill="url(#wave1)" fill-opacity="0.6">PLANEJAMENTO</text>
+            <text text-anchor="middle" x="50" y="10" font-size="12" fill="url(#grad1)"  fill-opacity="0.2">PLANEJAMENTO</text>
+          </svg>
 
-        <section id="Investimentos" class="investments-section">
-            <div class="container">
-                <div class="investment-intro">
-                    <h1>Quais são os tipos de investimentos financeiros?</h1>
-                    <p>É possível dividir os investimentos de diversas maneiras. Há quem divida por prazo (investimento de curto, médio ou longo prazo), mas o mais comum é separar por modalidade de risco.</p>
-                    <p>Basicamente, existem dois grandes tipos de investimentos: os de renda fixa e os de renda variável.</p>
-                    <p>Os investimentos em renda fixa podem ser prefixados (quando é possível saber o retorno exato da aplicação antes de investir) ou pós-fixados (quando o rendimento está atrelado a índices da economia).</p>
-                    <p>Diferentemente da renda fixa, na renda variável os tipos de investimentos oscilam mais e, por isso, têm risco maior – no mundo dos investimentos, mais risco pode significar também mais rentabilidade.</p>
-                </div>
-                
-                <div class="investment-types">
-                    <div class="investment-type">
-                        <h2><i class="fa-sharp fa-regular fa-star"></i> RENDA FIXA</h2>
-                        <div class="rating">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <p>Menor risco, retorno mais previsível</p>
-                        </div>
-                    </div>
-                    
-                    <div class="investment-type">
-                        <h2><i class="fa-sharp fa-regular fa-star"></i> RENDA VARIÁVEL</h2>
-                        <div class="rating">
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <i class="fa-sharp fa-solid fa-star"></i>
-                            <p>Maior risco, potencial de retorno maior</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="specific-investments">
-                    <h2><i class="fa-solid fa-heart"></i> ALGUNS INVESTIMENTOS</h2>
-                    <div class="investments-grid">
-                        <div class="investment-item">
-                            <h3>Tesouro Direto</h3>
-                            <div class="heart-rating">
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                            </div>
-                            <p>Investimento do governo federal</p>
-                        </div>
-                        
-                        <div class="investment-item">
-                            <h3>CDB</h3>
-                            <div class="heart-rating">
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                            </div>
-                            <p>Certificado de Depósito Bancário</p>
-                        </div>
-                        
-                        <div class="investment-item">
-                            <h3>Fundos Imobiliários</h3>
-                            <div class="heart-rating">
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                            </div>
-                            <p>Investimento em imóveis</p>
-                        </div>
-                        
-                        <div class="investment-item">
-                            <h3>Ações</h3>
-                            <div class="heart-rating">
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                                <i class="fa-sharp fa-solid fa-heart"></i>
-                            </div>
-                            <p>Participação em empresas</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-section">
-            <div class="container">
-                <h1 class="contact-title"><i class="fa fa-envelope"></i> FALE CONOSCO</h1>
-                <form class="contact-form" method="post" action="enviaEmail.php">
-                    <div class="form-group">
-                        <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" required>
-                        <label>Nome</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Digite seu e-mail" required>
-                        <label>E-mail</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" name="assunto" class="form-control" placeholder="Digite um assunto" required>
-                        <label>Assunto</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea name="mensagem" class="form-control" placeholder="Deixe sua mensagem" required></textarea>
-                        <label>Mensagem</label>
-                    </div>
-                    
-                    <input type="hidden" name="acao" value="enviar">
-                    <button type="submit" class="submit-btn">ENVIAR</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer id="Contato" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Como me encontrar</h3>
-                    <p>Entre em contato através das redes sociais:</p>
-                    <div class="social-icons">
-                        <a href="https://www.twitter.com/elianeli25" target="_blank" class="social-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/elianeli25" target="_blank" class="social-icon">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/elianeramosbarbosa-erb" target="_blank" class="social-icon">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a href="https://wa.me/5511997732399" target="_blank" class="social-icon">
-                            <i class="fa fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:engproducao.eliane@gmail.com" class="social-icon">
-                            <i class="fa fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Créditos e Parceiros</h3>
-                    <div class="credits">
-                        <a href="https://github.com/ELIANERB/portifolio.elianerbarbosa" target="_blank" class="credit-link">
-                            <i class="fa fa-github"></i> GitHub
-                        </a>
-                        <a href="https://fontawesome.com/" target="_blank" class="credit-link">
-                            <i class="fa fa-font-awesome"></i> Font Awesome
-                        </a>
-                        <a href="https://www.youtube.com/watch?v=B4FU3NFRTDw" target="_blank" class="credit-link">
-                            <i class="fa fa-youtube"></i> YouTube
-                        </a>
-                    </div>
-                    
-                    <div class="partners">
-                        <h4>Parceiros</h4>
-                        <div class="partner-logos">
-                            <a href="https://www.linkedin.com/in/julianaribeirof" target="_blank" class="partner-logo">JR</a>
-                            <a href="https://www.jabrasil.org.br" target="_blank" class="partner-logo">JA</a>
-                            <a href="https://www.grupoccr.com.br/instituto-ccr/projeto-elas-na-tech" target="_blank" class="partner-logo">CCR</a>
-                            <a href="https://www.w3schools.com" target="_blank" class="partner-logo">W3S</a>
-                            <a href="https://www.canva.com/icons" target="_blank" class="partner-logo">Canva</a>
-                            <a href="https://www.udemy.com/pt" target="_blank" class="partner-logo">Udemy</a>
-                            <a href="https://convertio.co/pt" target="_blank" class="partner-logo">Convertio</a>
-                            <a href="https://www.pexels.com/pt-br" target="_blank" class="partner-logo">Pexels</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>Copyright © 2023 desenvolvido por Eliane R. Barbosa</p>
-            </div>
+          <div class="info-text">
+            <p>A desigualdade de renda aumentou nas regiões metropolitanas do Brasil em 2022, é o que mostra a 12ª edição do boletim <em>Desigualdade nas Metrópoles</em>.</p>
+            <p>De acordo com o estudo, os 10% mais ricos encerraram 2022 ganhando <strong>31 vezes</strong> o salário dos 40% mais pobres nas regiões metropolitanas do país.</p>
+            <p>Segundo pesquisa do Banco BV e Instituto MindMiners em 2022, <strong>61% dos brasileiros</strong> associam o dinheiro a sentimentos negativos e 54% ainda o consideram um tabu.</p>
+            <p>Mude sua forma de pensar sobre o dinheiro. Infelizmente não é comum ensinarem educação financeira nas escolas — as pessoas crescem acostumadas a gastar tudo que ganham.</p>
+            <p>Para juntar dinheiro você precisa mudar seu pensamento: pare de encarar o dinheiro como moeda de troca e passe a utilizá-lo como um <em>funcionário que trabalha para você</em>.</p>
+            <a href="https://observatorio3setor.org.br/noticias/brasil-10-mais-ricos-ganham-31-vezes-o-salario-dos-mais-pobres-nas-regioes-metropolitanas/" class="btn-link" target="_blank" rel="noopener noreferrer">Saiba mais</a>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        // Gráfico Plotly
-        const xArray = ["Mais pobres", "Intermediários", "Mais ricos"];
-        const yArray = [40, 50, 10];
-        
-        const layout = {title: "Distribuição de Grupos de Renda (%)"};
-        
-        const data = [{
-            labels: xArray, 
-            values: yArray, 
-            type: "pie",
-            marker: {
-                colors: ['#72c8cd', '#4a9fa3', '#1a7075']
-            },
-            hole: 0.4
-        }];
+        <div class="chart-content">
+          <div id="myPlot" role="img" aria-label="Gráfico de pizza: distribuição de grupos de renda no Brasil"></div>
 
-        Plotly.newPlot("myPlot", data, layout);
+          <svg viewBox="0 0 100 20" class="animated-text" aria-hidden="true">
+            <defs>
+              <linearGradient id="grad2" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="5%"  stop-color="#326384"/>
+                <stop offset="95%" stop-color="#123752"/>
+              </linearGradient>
+              <pattern id="wave2" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+                <path d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" fill="url(#grad2)">
+                  <animateTransform attributeName="transform" type="translate" from="0,0" to="40,0" dur="1.5s" repeatCount="indefinite"/>
+                </path>
+              </pattern>
+            </defs>
+            <text text-anchor="middle" x="50" y="15" font-size="15" fill="url(#wave2)" fill-opacity="0.6">FINANCEIRO</text>
+            <text text-anchor="middle" x="50" y="15" font-size="15" fill="url(#grad2)"  fill-opacity="0.1">FINANCEIRO</text>
+          </svg>
+        </div>
 
-        // Menu responsivo
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.querySelector('nav ul');
-            
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('show');
-                });
-            }
-            
-            // Smooth scroll para âncoras
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+      </div>
+    </section>
+
+    <!-- SOBRE / O QUE É IMPORTANTE SABER -->
+    <section id="Sobre" class="knowledge-section" aria-label="O que é importante saber">
+      <div class="container">
+        <h2 class="section-title">
+          <i class="fa-solid fa-handshake" aria-hidden="true"></i> O QUE É IMPORTANTE SABER
+        </h2>
+        <div class="knowledge-grid">
+
+          <article class="knowledge-card">
+            <h3>Lacuna de conhecimento</h3>
+            <p>A ausência de conhecimentos básicos sobre orçamento, poupança, investimentos e planejamento financeiro pode gerar insegurança e ansiedade em relação ao dinheiro.</p>
+            <a href="https://www.meioemensagem.com.br/opiniao/do-tabu-a-inclusao-repensando-a-relacao-do-brasileiro-com-o-dinheiro" class="btn-knowledge" target="_blank" rel="noopener noreferrer">Saiba mais →</a>
+          </article>
+
+          <article class="knowledge-card">
+            <h3>Reflexos da desigualdade</h3>
+            <p>A desigualdade social é um dos principais motivos para a associação negativa com o dinheiro. O Brasil tem uma das distribuições de renda mais desiguais do mundo.</p>
+            <a href="https://www.meioemensagem.com.br/opiniao/do-tabu-a-inclusao-repensando-a-relacao-do-brasileiro-com-o-dinheiro" class="btn-knowledge" target="_blank" rel="noopener noreferrer">Saiba mais →</a>
+          </article>
+
+          <article class="knowledge-card">
+            <h3>Falta de educação financeira</h3>
+            <p>Muitos brasileiros não têm acesso a informações e recursos que os ajudem a gerenciar suas finanças de forma eficaz — e essa lacuna começa ainda na escola.</p>
+            <a href="https://www.meioemensagem.com.br/opiniao/do-tabu-a-inclusao-repensando-a-relacao-do-brasileiro-com-o-dinheiro" class="btn-knowledge" target="_blank" rel="noopener noreferrer">Saiba mais →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO SE PLANEJAR -->
+    <section class="planning-section" aria-label="Como se planejar financeiramente">
+      <div class="container">
+        <h2 class="section-title">
+          <i class="fa-solid fa-book" aria-hidden="true"></i> COMO SE PLANEJAR FINANCEIRAMENTE
+        </h2>
+        <div class="planning-grid">
+
+          <article class="planning-card">
+            <h3>O que você deve fazer</h3>
+            <ul>
+              <li>Saiba quanto você ganha e gasta.</li>
+              <li>Tenha previsibilidade de receita e despesas mensais.</li>
+              <li>Faça um orçamento de todas as contas.</li>
+              <li>Defina metas claras.</li>
+              <li>Poupe regularmente.</li>
+            </ul>
+            <a href="https://serasa.certificadodigital.com.br/blog/mercado/planejamento-financeiro/" class="btn-planning" target="_blank" rel="noopener noreferrer">Saiba mais</a>
+          </article>
+
+          <article class="planning-card">
+            <h3>Como iniciar do zero</h3>
+            <ul>
+              <li>Defina metas e objetivos.</li>
+              <li>Registre suas despesas.</li>
+              <li>Reavalie seus gastos.</li>
+              <li>Crie uma reserva de emergência.</li>
+              <li>Adote o consumo consciente.</li>
+              <li>Pesquise antes de comprar.</li>
+              <li>Pague à vista, se possível.</li>
+              <li>Negocie dívidas.</li>
+              <li>Atualize seu planejamento com frequência.</li>
+            </ul>
+            <a href="https://planofp.com.br/como-iniciar-um-planejamento-financeiro-do-zero/" class="btn-planning" target="_blank" rel="noopener noreferrer">Saiba mais</a>
+          </article>
+
+          <article class="planning-card">
+            <h3>Benefícios do plano financeiro</h3>
+            <ul>
+              <li>Diminuir o estresse financeiro.</li>
+              <li>Facilitar a realização de objetivos.</li>
+              <li>Criar consciência sobre reservas financeiras.</li>
+              <li>Cortar gastos desnecessários.</li>
+              <li>Conhecer sua renda mensal real.</li>
+              <li>Viver de forma mais equilibrada.</li>
+              <li>Garantir e melhorar seu padrão de vida.</li>
+              <li>Evitar o endividamento.</li>
+              <li>Tomar decisões mais certeiras.</li>
+            </ul>
+            <a href="https://www.onze.com.br/blog/planejamento-financeiro-pessoal/" class="btn-planning" target="_blank" rel="noopener noreferrer">Saiba mais</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIMENTOS -->
+    <section id="Investimentos" class="investments-section" aria-label="Tipos de investimentos">
+      <div class="container">
+
+        <div class="investment-intro">
+          <h2>Quais são os tipos de investimentos financeiros?</h2>
+          <p>É possível dividir os investimentos por prazo (curto, médio ou longo) ou por modalidade de risco — a forma mais comum.</p>
+          <p>Basicamente existem dois grandes grupos: <strong>renda fixa</strong> e <strong>renda variável</strong>.</p>
+          <p>Na renda fixa você pode saber o retorno antes de investir (prefixado) ou ele fica atrelado a índices da economia (pós-fixado).</p>
+          <p>Na renda variável os investimentos oscilam mais — maior risco, mas também maior potencial de retorno.</p>
+        </div>
+
+        <div class="investment-types">
+          <div class="investment-type">
+            <h3><i class="fa-regular fa-star" aria-hidden="true"></i> RENDA FIXA</h3>
+            <div class="rating" aria-label="5 estrelas">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <p>Menor risco, retorno mais previsível</p>
+            </div>
+          </div>
+
+          <div class="investment-type">
+            <h3><i class="fa-regular fa-star" aria-hidden="true"></i> RENDA VARIÁVEL</h3>
+            <div class="rating" aria-label="5 estrelas">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <p>Maior risco, potencial de retorno maior</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="specific-investments">
+          <h3><i class="fa-solid fa-heart" aria-hidden="true"></i> ALGUNS INVESTIMENTOS</h3>
+          <div class="investments-grid">
+
+            <div class="investment-item">
+              <h4>Tesouro Direto</h4>
+              <div class="heart-rating" aria-label="5 corações">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+              </div>
+              <p>Investimento do governo federal</p>
+            </div>
+
+            <div class="investment-item">
+              <h4>CDB</h4>
+              <div class="heart-rating" aria-label="5 corações">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+              </div>
+              <p>Certificado de Depósito Bancário</p>
+            </div>
+
+            <div class="investment-item">
+              <h4>Fundos Imobiliários</h4>
+              <div class="heart-rating" aria-label="5 corações">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+              </div>
+              <p>Investimento em imóveis</p>
+            </div>
+
+            <div class="investment-item">
+              <h4>Ações</h4>
+              <div class="heart-rating" aria-label="5 corações">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+              </div>
+              <p>Participação em empresas</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO / FORMULÁRIO -->
+    <section class="contact-section" aria-label="Fale conosco">
+      <div class="container">
+        <h2 class="contact-title">
+          <i class="fa fa-envelope" aria-hidden="true"></i> FALE CONOSCO
+        </h2>
+
+        <!-- Formulário via FormSubmit (sem back-end PHP) -->
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formsubmit.co/engproducao.eliane@gmail.com"
+          method="POST"
+          novalidate
+        >
+          <!-- Configuração FormSubmit -->
+          <input type="hidden" name="_subject"      value="Novo contato — Planejamento Financeiro" />
+          <input type="hidden" name="_captcha"      value="false" />
+          <input type="hidden" name="_template"     value="table" />
+          <input type="hidden" name="_next"         value="" />
+
+          <div class="form-group">
+            <input type="text"  name="nome"     class="form-control" id="f-nome"     placeholder="Digite seu nome"   required autocomplete="name" />
+            <label for="f-nome">Nome</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="email"    class="form-control" id="f-email"    placeholder="Digite seu e-mail" required autocomplete="email" />
+            <label for="f-email">E-mail</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text"  name="assunto"  class="form-control" id="f-assunto"  placeholder="Digite um assunto" required />
+            <label for="f-assunto">Assunto</label>
+          </div>
+
+          <div class="form-group">
+            <textarea name="mensagem" class="form-control" id="f-mensagem" placeholder="Deixe sua mensagem" required></textarea>
+            <label for="f-mensagem">Mensagem</label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span class="btn-text">ENVIAR</span>
+          </button>
+
+          <!-- Mensagem de feedback -->
+          <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="Contato" class="footer">
+    <div class="container">
+      <div class="footer-content">
+
+        <div class="footer-section">
+          <h3>Como me encontrar</h3>
+          <p>Entre em contato através das redes sociais:</p>
+          <div class="social-icons">
+            <a href="https://www.twitter.com/elianeli25"               class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/eliane.ramos.148"         class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/elianeli25"              class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/elianeramosbarbosa-erb" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://wa.me/5511997732399"                       class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="mailto:engproducao.eliane@gmail.com"               class="social-icon" aria-label="E-mail"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Créditos e Parceiros</h3>
+          <div class="credits">
+            <a href="https://github.com/elianerbarbosa" target="_blank" rel="noopener noreferrer" class="credit-link"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+            <a href="https://fontawesome.com/"           target="_blank" rel="noopener noreferrer" class="credit-link"><i class="fa fa-flag"   aria-hidden="true"></i> Font Awesome</a>
+            <a href="https://www.youtube.com/"           target="_blank" rel="noopener noreferrer" class="credit-link"><i class="fa fa-youtube" aria-hidden="true"></i> YouTube</a>
+          </div>
+
+          <div class="partners">
+            <h4>Parceiros</h4>
+            <div class="partner-logos">
+              <a href="https://www.linkedin.com/in/julianaribeirof"                              target="_blank" rel="noopener noreferrer" class="partner-logo">JR</a>
+              <a href="https://www.jabrasil.org.br"                                              target="_blank" rel="noopener noreferrer" class="partner-logo">JA</a>
+              <a href="https://www.grupoccr.com.br/instituto-ccr/projeto-elas-na-tech"           target="_blank" rel="noopener noreferrer" class="partner-logo">CCR</a>
+              <a href="https://www.w3schools.com"                                                target="_blank" rel="noopener noreferrer" class="partner-logo">W3S</a>
+              <a href="https://www.canva.com/icons"                                              target="_blank" rel="noopener noreferrer" class="partner-logo">Canva</a>
+              <a href="https://www.udemy.com/pt"                                                 target="_blank" rel="noopener noreferrer" class="partner-logo">Udemy</a>
+              <a href="https://convertio.co/pt"                                                  target="_blank" rel="noopener noreferrer" class="partner-logo">Convertio</a>
+              <a href="https://www.pexels.com/pt-br"                                             target="_blank" rel="noopener noreferrer" class="partner-logo">Pexels</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright &copy; <span id="ano"></span> desenvolvido por Eliane R. Barbosa</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="main.js"></script>
 </body>
 </html>
